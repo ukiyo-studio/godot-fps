@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://dducx755y6gqx"]
+
+[ext_resource type="Script" uid="uid://cja2g6ykvqgcx" path="res://objects/item_health.gd" id="1_xsyw7"]
+[ext_resource type="PackedScene" uid="uid://cjkf1xufj0ynm" path="res://models/Food-Kit/plate.fbx" id="2_hyof6"]
+[ext_resource type="PackedScene" uid="uid://dwtyfvbiwt1fh" path="res://models/Food-Kit/burger-double.fbx" id="3_2gisc"]
+[ext_resource type="PackedScene" uid="uid://ci678o1i1fhy4" path="res://models/Food-Kit/fries.fbx" id="4_n8nh4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_of6jr"]
+size = Vector3(1, 0.5, 1)
+
+[node name="Item_Health_Burger" type="Area3D"]
+script = ExtResource("1_xsyw7")
+heal_amount = 60
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_of6jr")
+
+[node name="plate" parent="." instance=ExtResource("2_hyof6")]
+
+[node name="burger-double" parent="." instance=ExtResource("3_2gisc")]
+transform = Transform3D(0.9691234, 0, -0.24657618, 0, 1, 0, 0.24657618, 0, 0.9691234, -0.034231484, 0.06975263, -0.091807306)
+
+[node name="fries" parent="." instance=ExtResource("4_n8nh4")]
+transform = Transform3D(0.68243223, 0, -0.73094887, 0, 1, 0, 0.73094887, 0, 0.68243223, 0.14042792, 0.05103129, 0.12930739)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgm28xweqc6e4"]
+
+[ext_resource type="PackedScene" uid="uid://co02ec4n436s" path="res://models/Prototype-Kit/indicator-special-lines.fbx" id="1_oly0b"]
+[ext_resource type="PackedScene" uid="uid://ccuhhhwsdgggt" path="res://models/Prototype-Kit/lever-double.fbx" id="2_krs71"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n3f8k"]
+
+[node name="Exit_Indicator" type="Area3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_n3f8k")
+
+[node name="indicator-special-lines" parent="." instance=ExtResource("1_oly0b")]
+
+[node name="lever-double" parent="." instance=ExtResource("2_krs71")]
+transform = Transform3D(2.9802322e-08, 1, 0, -1, 2.9802322e-08, 0, 0, 0, 1, -0.5, 0.75, 0)

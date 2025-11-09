@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ct84xy37dbf72"]
+
+[ext_resource type="Script" uid="uid://dv4o2f35iyrvh" path="res://item_health_dinner.gd" id="1_of6jr"]
+[ext_resource type="PackedScene" uid="uid://xhrnen4bqmkv" path="res://models/Food-Kit/plate-dinner.fbx" id="2_of6jr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_of6jr"]
+size = Vector3(1, 0.5, 1)
+
+[node name="Item_Health_Dinner" type="Area3D"]
+script = ExtResource("1_of6jr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_of6jr")
+
+[node name="plate-dinner" parent="." instance=ExtResource("2_of6jr")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

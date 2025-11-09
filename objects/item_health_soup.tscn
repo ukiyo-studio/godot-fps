@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://eojh4611b1c4"]
+
+[ext_resource type="Script" uid="uid://cja2g6ykvqgcx" path="res://objects/item_health.gd" id="1_tvnxm"]
+[ext_resource type="PackedScene" uid="uid://b3wpnc20st242" path="res://models/Food-Kit/bowl-soup.fbx" id="2_tvnxm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_of6jr"]
+size = Vector3(1, 0.5, 1)
+
+[node name="Item_Health_Soup" type="Area3D"]
+script = ExtResource("1_tvnxm")
+heal_amount = 10
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_of6jr")
+
+[node name="bowl-soup" parent="." instance=ExtResource("2_tvnxm")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
