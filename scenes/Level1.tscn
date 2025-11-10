@@ -28,24 +28,38 @@ environment = ExtResource("1_6ovph")
 transform = Transform3D(1, 0, 0, 0, 0.52956396, 0.84827, 0, -0.84827, 0.52956396, 0, 5.974591, 3.0352485)
 
 [node name="Player" parent="." node_paths=PackedStringArray("crosshair") instance=ExtResource("2_odhdn")]
-crosshair = NodePath("../HUD/Crosshair")
+crosshair = NodePath("../HUD/CenterContainer/Crosshair")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource("4_lrl65")
 
-[node name="Crosshair" type="TextureRect" parent="HUD"]
-offset_left = 576.0
-offset_top = 296.0
-offset_right = 704.0
-offset_bottom = 424.0
-scale = Vector2(0.35, 0.35)
-texture = ExtResource("4_dw26h")
+[node name="CenterContainer" type="CenterContainer" parent="HUD"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Health" type="Label" parent="HUD"]
-offset_left = 48.0
-offset_top = 627.0
-offset_right = 138.0
-offset_bottom = 672.0
+[node name="Crosshair" type="TextureRect" parent="HUD/CenterContainer"]
+layout_mode = 2
+texture = ExtResource("4_dw26h")
+stretch_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD"]
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -186.0
+offset_right = 139.0
+offset_bottom = -94.0
+grow_vertical = 0
+scale = Vector2(2, 2)
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Health" type="Label" parent="HUD/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 text = "100%"
