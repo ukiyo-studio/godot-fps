@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Starter Kit FPS"
+config/name="Godotfenstein 3D"
 config/tags=PackedStringArray("starterkit")
 run/main_scene="uid://dwqykel8ccn1a"
 config/features=PackedStringArray("4.5", "Forward Plus")
